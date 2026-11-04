@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YAYYY! 💗</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="yes.css">
+</head>
+
+<body>
+
+    <div class="dreamy-atmosphere" id="dreamyAtmosphere">
+        <div class="ambient-glow"></div>
+    </div>
+
+    <main class="yes-section">
+
+        <div class="yes-content">
+            <p class="yes-subtitle">WAIT... WHAT?! ♡</p>
+
+            <h1>HAH, SERIUSAN NIII?! 😭💗</h1>
+
+            <p>
+                WKWKWK akhirnya yaaa...
+                Jadi sekarang aku resmi boleh manggil kamu sayang, bisa tium kamu sepuasnya dong??
+            </p>
+
+            <button id="openScrapbook">
+                LIAT KENANGAN KITA ♡
+            </button>
+
+        </div>
+
+        <div class="scrapbook-overlay" id="scrapbookOverlay">
+
+            <div class="scrapbook-card">
+
+                <button class="scrapbook-close" id="closeScrapbook">
+                    ×
+                </button>
+
+                <p class="scrapbook-label">A LITTLE MEMORY ♡</p>
+
+                <div class="scrapbook-photo">
+
+                    <img id="scrapbookImage"
+                         src="Images/Foto1.jpg"
+                         alt="Our memory">
+
+                    <video 
+                        id="scrapbookVideo"
+                        playsinline
+                        preload="metadata"
+                        controls
+                        style="display: none;"
+                    >
+                        <source src="" type="video/mp4">
+                    </video>
+
+                    <button id="playMemoryVideo" type="button" aria-label="Play memory video">
+                        ▶
+                    </button>
+
+                </div>
+
+                <h2 id="scrapbookTitle">
+                    A little moment with you
+                </h2>
+
+                <p id="scrapbookMessage">
+                    One of my favorite little memories. 💗
+                </p>
+
+                <div class="scrapbook-navigation">
+
+                    <span id="scrapbookCounter">01 / 10</span>
+
+                    <div class="scrapbook-buttons">
+                        <button id="prevScrapbook">
+                            ← BACK
+                        </button>
+
+                        <button id="nextScrapbook">
+                            NEXT →
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="yes.js"></script>
+</body>
+</html>

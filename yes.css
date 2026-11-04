@@ -1,0 +1,455 @@
+.yes-section {
+    position: relative;
+    z-index: 11;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at 20% 20%, #ffe0e9 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, #ffd1df 0%, transparent 40%),
+        #fff5f7;
+}
+
+.yes-content {
+    width: 100%;
+    max-width: 550px;
+    padding: 35px 25px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(232, 142, 170, 0.25);
+    border-radius: 28px;
+    box-shadow: 0 15px 45px rgba(163, 79, 108, 0.12);
+
+    animation: yesAppear 1s ease;
+}
+
+.yes-subtitle {
+    margin-bottom: 18px;
+    color: #c16b89;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.yes-content h1 {
+    margin-bottom: 20px;
+    color: #a34f6c;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 6vw, 42px);
+    line-height: 1.3;
+}
+
+.yes-content p:last-child {
+    color: #805565;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.yes-heart {
+    position: fixed;
+    bottom: -40px;
+    left: var(--heart-left);
+    font-size: var(--heart-size);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+
+    animation: heartFloat var(--heart-duration) ease-in forwards;
+}
+
+.scrapbook-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    background: rgba(75, 35, 52, 0.48);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.scrapbook-overlay.show {
+    display: flex;
+    animation: overlayAppear 0.4s ease;
+}
+
+.scrapbook-card {
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    padding: 25px 24px 22px;
+
+    background: #fffaf5;
+    border: 1px solid #f3dce2;
+    border-radius: 8px 8px 18px 18px;
+
+    box-shadow: 0 20px 60px rgba(60, 25, 40, 0.25);
+
+    text-align: center;
+    transform: rotate(-1deg);
+
+    animation: scrapbookAppear 0.6s ease;
+}
+
+#closeScrapbook {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 50%;
+    background: #f9e5eb;
+
+    color: #a34f6c;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 1;
+
+    box-shadow: none;
+    transform: none;
+    cursor: pointer;
+    z-index: 5;
+}
+
+#closeScrapbook:hover {
+    background: #f3d1dc;
+    transform: scale(1.05);
+}
+
+#closeScrapbook:active {
+    transform: scale(0.95);
+}
+
+.scrapbook-label {
+    margin: 5px 0 18px;
+
+    color: #c17b91;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.scrapbook-photo {
+    position: relative;
+    width: 100%;
+    height: 230px;
+
+    padding: 9px 9px 12px;
+    background: white;
+
+    box-shadow: 0 5px 18px rgba(120, 65, 85, 0.13);
+
+    transform: rotate(1.5deg);
+}
+
+.scrapbook-photo::after {
+    content: "♡";
+    position: absolute;
+    top: -15px;
+    right: -10px;
+
+    color: #dc91aa;
+    font-size: 35px;
+    transform: rotate(15deg);
+}
+
+.scrapbook-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.scrapbook-card h2 {
+    margin: 25px 0 9px;
+
+    color: #a34f6c;
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.scrapbook-card > p:not(.scrapbook-label) {
+    margin: 0 auto 22px;
+    max-width: 290px;
+
+    color: #805565;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.scrapbook-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    padding-top: 15px;
+    border-top: 1px dashed #e9cbd5;
+}
+
+#scrapbookCounter {
+    color: #bd8296;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.scrapbook-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.scrapbook-buttons button {
+    padding: 11px 15px;
+    border: none;
+    border-radius: 30px;
+
+    background: #e88eaa;
+    color: white;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.scrapbook-buttons button:hover:not(:disabled) {
+    background: #c96f8e;
+    transform: translateY(-2px);
+}
+
+.scrapbook-buttons button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.dream-particle {
+    position: absolute;
+    bottom: -30px;
+
+    color: #e88eaa;
+    font-size: var(--particle-size);
+
+    opacity: 0;
+    pointer-events: none;
+
+    animation: loveRain var(--particle-duration) linear forwards;
+}
+
+.scrapbook-card.changing {
+    animation: memoryChange 0.45s ease;
+}
+
+.scrapbook-photo video {
+    width: 100%;
+    height: 100%;
+    display: none;
+    object-fit: contain;
+    border-radius: 2px;
+    background: #1f1720;
+}
+
+#playMemoryVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 65px;
+    height: 65px;
+    padding: 0;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+
+    background: rgba(232, 142, 170, 0.9);
+    color: white;
+
+    font-size: 25px;
+    cursor: pointer;
+
+    box-shadow: 0 5px 20px rgba(163, 79, 108, 0.3);
+    transition: 0.3s ease;
+
+    z-index: 3;
+}
+
+#playMemoryVideo:hover {
+    background: #c96f8e;
+    transform: translate(-50%, -50%) scale(1.12);
+}
+
+#playMemoryVideo:active {
+    transform: translate(-50%, -50%) scale(0.92);
+}
+
+@keyframes memoryChange {
+    0% {
+        opacity: 0.4;
+        transform: translateY(10px) rotate(-2deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(-1deg);
+    }
+}
+
+@keyframes loveRain {
+    0% {
+        opacity: 0;
+        transform: translateY(0) rotate(0deg);
+    }
+
+    15% {
+        opacity: 0.65;
+    }
+
+    85% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-110vh) rotate(40deg);
+    }
+}
+
+@media (max-width: 380px) {
+    .scrapbook-buttons {
+        gap: 5px;
+    }
+
+    .scrapbook-buttons button {
+        padding: 10px 11px;
+        font-size: 9px;
+    }
+}
+
+#openScrapbook {
+    margin-top: 25px;
+    padding: 14px 24px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: linear-gradient(135deg, #e88eaa, #c96f8e);
+    color: white;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(201, 111, 142, 0.25);
+    transition: 0.3s ease;
+}
+
+#openScrapbook:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 22px rgba(201, 111, 142, 0.35);
+}
+
+@keyframes overlayAppear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scrapbookAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) rotate(-4deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(-1deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .scrapbook-card {
+        max-width: 340px;
+        padding: 22px 18px 19px;
+    }
+
+    .scrapbook-photo {
+        height: 210px;
+    }
+
+    .scrapbook-card h2 {
+        font-size: 21px;
+    }
+}
+
+@keyframes heartFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(0) rotate(0deg);
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-110vh) rotate(35deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .yes-heart {
+        animation: none;
+        display: none;
+    }
+}
+
+@keyframes yesAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
